@@ -23,6 +23,7 @@ $(function() {
             }
             $.ajax({
                 url: "https://hidden-brushlands-7444.herokuapp.com/users",
+                                // url: "http://localhost:3000/users",
                 type: "POST",
                 data: {
                     name: name,
