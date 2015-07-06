@@ -10,8 +10,9 @@ $(function() {
             $("#btnSubmit").attr("disabled", true);
             $("#btnSubmit").html(' Enter Contest &nbsp; <span class="glyphicon" aria-hidden="true"><i class="fa fa-refresh fa-spin"></i></span>');
             event.preventDefault();
-            
+
             // get values from FORM
+            var url = "http://holygrailofhealthscience.com/";
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
@@ -23,7 +24,7 @@ $(function() {
             }
             $.ajax({
                 url: "https://hidden-brushlands-7444.herokuapp.com/users",
-                                // url: "http://localhost:3000/users",
+                // url: "http://localhost:3000/users",
                 type: "POST",
                 data: {
                     name: name,
@@ -33,7 +34,7 @@ $(function() {
                 },
                 cache: false,
                 success: function(response) {
-                    console.log("good",response);
+                    console.log("good", response);
                     // Enable button & show success message
                     $("#btnSubmit").attr("disabled", false);
                     $("#btnSubmit").html(' Enter Contest ');
@@ -41,15 +42,19 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong> You have successfully signed up. </strong>");
+                        .append("<strong> You have successfully signed up. </strong> <br>Redirecting to holygrailofhealthscience.com");
                     $('#success > .alert-success')
                         .append('</div>');
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
+                    setTimeout(
+                        function() {
+                            $(location).attr('href',url);
+                        }, 2000);
                 },
                 error: function(response) {
-                    console.log("bad",response);
+                    console.log("bad", response);
                     // Fail message
                     // $('#success').html("<div class='alert alert-danger'>");
                     // $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -64,12 +69,16 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong> You have successfully signed up. </strong>");
+                        .append("<strong> You have successfully signed up. </strong> <br>Redirecting to holygrailofhealthscience.com");
                     $('#success > .alert-success')
                         .append('</div>');
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
+                    setTimeout(
+                        function() {
+                            $(location).attr('href',url);
+                        }, 2000);
                 },
             })
         },
