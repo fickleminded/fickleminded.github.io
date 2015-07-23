@@ -12,7 +12,7 @@ $(function() {
             event.preventDefault();
 
             // get values from FORM
-            var url = "http://holygrailofhealthscience.com/";
+            var url = "http://juliasbiz.myasealive.com/newsite/aboutus/OurStory.aspx";
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
