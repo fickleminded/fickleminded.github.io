@@ -51,7 +51,7 @@ $(function() {
                     setTimeout(
                         function() {
                             $(location).attr('href',url);
-                        }, 2000);
+                        }, 500);
                 },
                 error: function(response) {
                     console.log("bad", response);
@@ -78,7 +78,7 @@ $(function() {
                     setTimeout(
                         function() {
                             $(location).attr('href',url);
-                        }, 2000);
+                        }, 500);
                 },
             })
         },
