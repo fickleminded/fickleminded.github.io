@@ -25,6 +25,15 @@ a.active {
     color: #18bc9c;
 }
 
+a.white,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+    color: #ffffff;
+}
+
 h1,
 h2,
 h3,
