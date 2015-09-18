@@ -37,6 +37,7 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 $('body').on('click', '#winner', function(e) {
+    $("#winner").html(' <span class="glyphicon" aria-hidden="true"><i class="fa fa-refresh fa-spin"></i></span> ');
     e.preventDefault();
     $.ajax({
         url: "https://hidden-brushlands-7444.herokuapp.com/show_me_the_winner",
@@ -44,9 +45,11 @@ $('body').on('click', '#winner', function(e) {
         type: "GET",
         cache: false,
         success: function(response) {
+            $("#winner").html('Show me the winner');
             $("#winner-announce").html('<mark class="name text-info">'+response.name+'</mark><h1>'+response.email+'</h1><h1>Phone: '+ response.phone+'</h1><br/><br/><br/>');
         },
         error: function(response) {
+            $("#winner").html('Show me the winner');
             $("#winner-announce").html('<mark class="name text-info">'+response.name+'</mark><h1>'+response.email+'</h1><h1>Phone: '+ response.phone+'</h1><br/><br/><br/>');
         },
     })
