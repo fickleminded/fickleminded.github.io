@@ -18,7 +18,7 @@ $(function() {
 // Floating label headings for the contact form
 $(function() {
     $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !! $(e.target).val());
+        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
     }).on("focus", ".floating-label-form-group", function() {
         $(this).addClass("floating-label-form-group-with-focus");
     }).on("blur", ".floating-label-form-group", function() {
@@ -35,3 +35,19 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+$('body').on('click', '#winner', function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: "https://hidden-brushlands-7444.herokuapp.com/show_me_the_winner",
+        // url: "http://localhost:3000/show_me_the_winner",
+        type: "GET",
+        cache: false,
+        success: function(response) {
+            $("#winner-announce").html('<mark class="name text-info">'+response.name+'</mark><h1>'+response.email+'</h1><h1>Phone: '+ response.phone+'</h1><br/><br/><br/>');
+        },
+        error: function(response) {
+            $("#winner-announce").html('<mark class="name text-info">'+response.name+'</mark><h1>'+response.email+'</h1><h1>Phone: '+ response.phone+'</h1><br/><br/><br/>');
+        },
+    })
+})
